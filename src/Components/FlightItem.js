@@ -10,7 +10,7 @@ function FlightItem(props) {
       <p className='flightInfo'>Date: {props.flight.flightDate}</p>
       <p className='flightInfo'>Flight Time: {props.flight.flightTime}</p>
       <p className='flightInfo'>Price: ${props.flight.price}</p>
-      <button onClick={()=>props.onSelect(props.flight)}>Book This Flight</button>
+      {props.flight.externallySourced ? <button onClick={()=>props.onSelect(props.flight, true)}>Book Flight w/ Echo Flights</button> : <button onClick={()=>props.onSelect(props.flight, false)}>Book This Flight</button>}
     </li>
   );
 }
